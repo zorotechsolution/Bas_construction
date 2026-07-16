@@ -479,6 +479,12 @@ section {
 
 body.menu-open { overflow: hidden; }
 
+body.menu-open .navbar-lux {
+  z-index: 1056;
+  background: rgba(10, 10, 10, 0.98);
+  border-bottom-color: rgba(240, 168, 48, 0.35);
+}
+
 /* ---------- 7. HERO CAROUSEL ---------- */
 .hero {
   position: relative;
@@ -2092,6 +2098,26 @@ select.form-control-lux option {
 
   .eyebrow { font-size: 0.7rem; letter-spacing: 3px; }
   .eyebrow::before, .eyebrow::after { width: 20px; }
+}
+
+@media (max-width: 359.98px) {
+  .navbar-lux .container { padding-inline: 12px; }
+  .navbar-lux .brand-logo { height: 46px; }
+  .navbar-lux.scrolled .brand-logo { height: 42px; }
+
+  .navbar-toggler-lux {
+    width: 42px;
+    height: 42px;
+  }
+
+  .navbar-toggler-lux span { width: 21px; }
+
+  .mobile-menu {
+    width: 100%;
+    max-width: none;
+    border-left: 0;
+    padding-inline: 18px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
