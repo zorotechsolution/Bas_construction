@@ -19,10 +19,10 @@
 <body>
 
   <!-- ============ NAVBAR ============ -->
-  <nav class="navbar-lux" id="navbar">
+  <nav class="navbar-lux" id="navbar" aria-label="Primary navigation">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <a href="index.html" class="navbar-brand p-0">
+        <a href="index.html" class="navbar-brand p-0" aria-label="BAS Baby Architects Studio home">
           <img src="images/logo-gw1.png" alt="BAS Baby Architects Studio" class="brand-logo" />
         </a>
         <ul class="nav-links">
@@ -33,22 +33,22 @@
           <li><a href="testimonials.html" data-nav="testimonials.html">Testimonials</a></li>
           <li><a href="contact.html" data-nav="contact.html">Contact</a></li>
         </ul>
-        <button class="navbar-toggler-lux" id="navToggler" aria-label="Toggle menu">
+        <button class="navbar-toggler-lux" id="navToggler" type="button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </nav>
 
-  <div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
     <a href="index.html" data-nav="index.html">Home</a>
     <a href="about.html" data-nav="about.html">About</a>
     <a href="services.html" data-nav="services.html">Services</a>
     <a href="blogs.html" data-nav="blogs.html">Blogs</a>
     <a href="testimonials.html" data-nav="testimonials.html">Testimonials</a>
     <a href="contact.html" data-nav="contact.html">Contact</a>
-  </div>
-  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  </nav>
+  <div class="mobile-menu-overlay" id="menuOverlay" aria-hidden="true"></div>
 
   <!-- ============ PAGE BANNER ============ -->
   <section class="page-banner">
@@ -76,19 +76,19 @@
               <i class="fas fa-check-circle me-2"></i> Thank you — your message has been received. A member of the BAS team will be in touch within 24 hours.
             </div>
 
-            <form id="contactForm" novalidate>
+            <form id="contactForm">
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label-lux" for="name">Full Name *</label>
-                  <input type="text" class="form-control-lux" id="name" name="name" placeholder="e.g. Ananya Iyer" required />
+                  <input type="text" class="form-control-lux" id="name" name="name" autocomplete="name" placeholder="e.g. Ananya Iyer" required />
                 </div>
                 <div class="col-md-6">
                   <label class="form-label-lux" for="phone">Phone Number *</label>
-                  <input type="tel" class="form-control-lux" id="phone" name="phone" placeholder="+91 99999 99999" required />
+                  <input type="tel" class="form-control-lux" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+91 74185 64997" required />
                 </div>
                 <div class="col-12">
                   <label class="form-label-lux" for="email">Email Address *</label>
-                  <input type="email" class="form-control-lux" id="email" name="email" placeholder="you@example.com" required />
+                  <input type="email" class="form-control-lux" id="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required />
                 </div>
                 <div class="col-12">
                   <label class="form-label-lux" for="projectType">Project Type *</label>
@@ -135,7 +135,7 @@
             <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
             <div>
               <h5>Email</h5>
-              <a href="mailto:hello@basarchitects.com">babyarchitectstudio@gmail.com</a><br />
+              <a href="mailto:babyarchitectstudio@gmail.com">babyarchitectstudio@gmail.com</a><br />
             </div>
           </div>
 
@@ -143,8 +143,8 @@
             <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
             <div>
               <h5>Phone</h5>
-              <a href="tel:+919999999999">+91 74185 64997</a><br />
-              <a href="tel:+918888888888">+91 77080 04448</a>
+              <a href="tel:+917418564997">+91 74185 64997</a><br />
+              <a href="tel:+917708004448">+91 77080 04448</a>
             </div>
           </div>
 
@@ -259,7 +259,7 @@
       <p class="mx-auto mb-4" style="max-width:640px;">Sometimes a quick conversation is the fastest way to start. Drop us a WhatsApp message and we'll respond within working hours.</p>
       <div class="d-flex flex-wrap justify-content-center gap-3">
         <a href="#" class="btn-lux btn-gold" data-whatsapp><i class="fab fa-whatsapp"></i> Start WhatsApp Chat</a>
-        <a href="tel:+919999999999" class="btn-lux btn-outline-gold"><i class="fas fa-phone"></i> Call the Studio</a>
+        <a href="tel:+917418564997" class="btn-lux btn-outline-gold"><i class="fas fa-phone"></i> Call the Studio</a>
       </div>
     </div>
   </section>
@@ -305,19 +305,19 @@
           <h5>Contact</h5>
           <div class="footer-contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            <span>285 kp road ,  pioneer muthu street , parvathipuram - 629002</span>
+            <span>285 K.P. Road, Pioneer Muthu Street, Parvathipuram, Nagercoil — 629003</span>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-phone"></i>
-            <a href="tel:+919999999999">+91 74185 64997</a>
+            <a href="tel:+917418564997">+91 74185 64997</a>
           </div>
             <div class="footer-contact-item">
             <i class="fas fa-phone"></i>
-            <a href="tel:+919999999999">+91 77080 04448</a>
+            <a href="tel:+917708004448">+91 77080 04448</a>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-envelope"></i>
-            <a href="mailto:hello@basarchitects.com">babyarchitectstudio@gmail.com</a>
+            <a href="mailto:babyarchitectstudio@gmail.com">babyarchitectstudio@gmail.com</a>
           </div>
           <a href="#" class="btn-lux btn-gold mt-3" data-whatsapp><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
         </div>

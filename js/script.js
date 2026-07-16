@@ -10,7 +10,7 @@
 
   /* ---------- CONFIG ---------- */
   // Replace with the actual WhatsApp number in international format (no + or 00)
-  const WHATSAPP_NUMBER = '919999999999';
+  const WHATSAPP_NUMBER = '917418564997';
   const WHATSAPP_MESSAGE = 'Hi BAS Baby Architects Studio, I would like to discuss an architecture project.';
 
   /* ---------- 1. NAVBAR SCROLL EFFECT ---------- */
@@ -31,39 +31,90 @@
   const toggler = document.getElementById('navToggler');
   const mobileMenu = document.getElementById('mobileMenu');
   const menuOverlay = document.getElementById('menuOverlay');
+  let lastFocusedElement = null;
+
+  const getMenuLinks = () => mobileMenu
+    ? Array.from(mobileMenu.querySelectorAll('a[href]'))
+    : [];
 
   const openMenu = () => {
-    if (!mobileMenu) return;
+    if (!mobileMenu || !toggler) return;
+    lastFocusedElement = document.activeElement;
     mobileMenu.classList.add('open');
     menuOverlay && menuOverlay.classList.add('open');
-    toggler && toggler.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    toggler.classList.add('active');
+    toggler.setAttribute('aria-expanded', 'true');
+    toggler.setAttribute('aria-label', 'Close navigation menu');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+
+    const firstLink = getMenuLinks()[0];
+    firstLink && firstLink.focus({ preventScroll: true });
   };
 
-  const closeMenu = () => {
+  const closeMenu = (restoreFocus = true) => {
     if (!mobileMenu) return;
     mobileMenu.classList.remove('open');
     menuOverlay && menuOverlay.classList.remove('open');
     toggler && toggler.classList.remove('active');
-    document.body.style.overflow = '';
+    toggler && toggler.setAttribute('aria-expanded', 'false');
+    toggler && toggler.setAttribute('aria-label', 'Open navigation menu');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+
+    if (restoreFocus && lastFocusedElement instanceof HTMLElement) {
+      lastFocusedElement.focus({ preventScroll: true });
+    }
   };
 
   toggler && toggler.addEventListener('click', () => {
     mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
   });
-  menuOverlay && menuOverlay.addEventListener('click', closeMenu);
+  menuOverlay && menuOverlay.addEventListener('click', () => closeMenu());
   if (mobileMenu) {
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', () => closeMenu(false));
     });
   }
 
+  document.addEventListener('keydown', (event) => {
+    if (!mobileMenu || !mobileMenu.classList.contains('open')) return;
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeMenu();
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+    const links = getMenuLinks();
+    if (!links.length) return;
+    const firstLink = links[0];
+    const lastLink = links[links.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstLink) {
+      event.preventDefault();
+      lastLink.focus();
+    } else if (!event.shiftKey && document.activeElement === lastLink) {
+      event.preventDefault();
+      firstLink.focus();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 992 && mobileMenu && mobileMenu.classList.contains('open')) {
+      closeMenu(false);
+    }
+  }, { passive: true });
+
   /* ---------- 3. SET ACTIVE NAV LINK ---------- */
   const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const activeNavPage = currentPage === 'blog-detail.html' ? 'blogs.html' : currentPage;
   document.querySelectorAll('[data-nav]').forEach(link => {
     const target = (link.getAttribute('data-nav') || '').toLowerCase();
-    if (target === currentPage || (currentPage === '' && target === 'index.html')) {
+    if (target === activeNavPage || (activeNavPage === '' && target === 'index.html')) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
 
@@ -77,10 +128,19 @@
     let current = 0;
     let autoTimer = null;
     const SLIDE_DURATION = 6000;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const goTo = (index) => {
-      slides.forEach((s, i) => s.classList.toggle('active', i === index));
-      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      slides.forEach((slide, i) => {
+        const isActive = i === index;
+        slide.classList.toggle('active', isActive);
+        slide.setAttribute('aria-hidden', String(!isActive));
+      });
+      dots.forEach((dot, i) => {
+        const isActive = i === index;
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-current', String(isActive));
+      });
       current = index;
       restartAuto();
     };
@@ -88,11 +148,16 @@
     const next = () => goTo((current + 1) % slides.length);
     const prev = () => goTo((current - 1 + slides.length) % slides.length);
 
+    const stopAuto = () => {
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = null;
+    };
     const startAuto = () => {
+      stopAuto();
+      if (reduceMotion || document.hidden) return;
       autoTimer = setInterval(next, SLIDE_DURATION);
     };
     const restartAuto = () => {
-      if (autoTimer) clearInterval(autoTimer);
       startAuto();
     };
 
@@ -100,9 +165,14 @@
     nextBtn && nextBtn.addEventListener('click', next);
     prevBtn && prevBtn.addEventListener('click', prev);
 
+    slides.forEach((slide, i) => slide.setAttribute('aria-hidden', String(i !== current)));
+
     // Pause on hover
-    carousel.addEventListener('mouseenter', () => autoTimer && clearInterval(autoTimer));
+    carousel.addEventListener('mouseenter', stopAuto);
     carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('focusin', stopAuto);
+    carousel.addEventListener('focusout', startAuto);
+    document.addEventListener('visibilitychange', () => document.hidden ? stopAuto() : startAuto());
 
     // Keyboard
     document.addEventListener('keydown', (e) => {
@@ -185,6 +255,13 @@
     el.setAttribute('href', waUrl);
     el.setAttribute('target', '_blank');
     el.setAttribute('rel', 'noopener noreferrer');
+  });
+
+  /* Prevent unfinished placeholder links from jumping to the page top. */
+  document.querySelectorAll('a[href="#"]:not([data-whatsapp])').forEach(link => {
+    link.setAttribute('aria-disabled', 'true');
+    link.classList.add('is-placeholder');
+    link.addEventListener('click', (event) => event.preventDefault());
   });
 
   /* ---------- 9. SMOOTH SCROLL FOR ANCHOR LINKS ---------- */

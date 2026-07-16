@@ -19,10 +19,10 @@
 <body>
 
   <!-- ============ NAVBAR ============ -->
-  <nav class="navbar-lux" id="navbar">
+  <nav class="navbar-lux" id="navbar" aria-label="Primary navigation">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <a href="index.html" class="navbar-brand p-0">
+        <a href="index.html" class="navbar-brand p-0" aria-label="BAS Baby Architects Studio home">
           <img src="images/logo-gw1.png" alt="BAS Baby Architects Studio" class="brand-logo" />
         </a>
         <ul class="nav-links">
@@ -33,22 +33,22 @@
           <li><a href="testimonials.html" data-nav="testimonials.html">Testimonials</a></li>
           <li><a href="contact.html" data-nav="contact.html">Contact</a></li>
         </ul>
-        <button class="navbar-toggler-lux" id="navToggler" aria-label="Toggle menu">
+        <button class="navbar-toggler-lux" id="navToggler" type="button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </nav>
 
-  <div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
     <a href="index.html" data-nav="index.html">Home</a>
     <a href="about.html" data-nav="about.html">About</a>
     <a href="services.html" data-nav="services.html">Services</a>
     <a href="blogs.html" data-nav="blogs.html">Blogs</a>
     <a href="testimonials.html" data-nav="testimonials.html">Testimonials</a>
     <a href="contact.html" data-nav="contact.html">Contact</a>
-  </div>
-  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  </nav>
+  <div class="mobile-menu-overlay" id="menuOverlay" aria-hidden="true"></div>
 
   <!-- ============ PAGE BANNER ============ -->
   <section class="page-banner">
@@ -67,7 +67,7 @@
     <div class="container">
       <div class="row align-items-center g-4 reveal">
         <div class="col-lg-6 img-zoom">
-          <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80" alt="Featured blog" class="img-fluid w-100" style="border:1px solid rgba(240,168,48,0.2); height:420px; object-fit:cover;" />
+          <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Featured blog" class="img-fluid w-100" loading="lazy" decoding="async" style="border:1px solid rgba(240,168,48,0.2); height:420px; object-fit:cover;" />
         </div>
         <div class="col-lg-6">
           <span class="eyebrow left">Featured Article</span>
@@ -95,7 +95,7 @@
           <article class="blog-card" data-href="blog-detail.html?post=modern-home-design-trends" tabindex="0" role="link">
             <div class="blog-image">
               <span class="blog-category">Design Trends</span>
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Modern home" />
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Modern home" loading="lazy" decoding="async" />
             </div>
             <div class="blog-content">
               <div class="blog-meta"><i class="far fa-calendar"></i> 12 Jul 2026 · <i class="far fa-clock"></i> 6 min</div>
@@ -111,7 +111,7 @@
           <article class="blog-card" data-href="blog-detail.html?post=architecture-improves-lifestyle" tabindex="0" role="link">
             <div class="blog-image">
               <span class="blog-category">Lifestyle</span>
-              <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=80" alt="Architecture lifestyle" />
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Architecture lifestyle" loading="lazy" decoding="async" />
             </div>
             <div class="blog-content">
               <div class="blog-meta"><i class="far fa-calendar"></i> 4 Jul 2026 · <i class="far fa-clock"></i> 7 min</div>
@@ -127,7 +127,7 @@
           <article class="blog-card" data-href="blog-detail.html?post=luxury-interior-design-ideas" tabindex="0" role="link">
             <div class="blog-image">
               <span class="blog-category">Interior</span>
-              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=700&q=80" alt="Luxury interior" />
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Luxury interior" loading="lazy" decoding="async" />
             </div>
             <div class="blog-content">
               <div class="blog-meta"><i class="far fa-calendar"></i> 28 Jun 2026 · <i class="far fa-clock"></i> 9 min</div>
@@ -143,7 +143,7 @@
           <article class="blog-card" data-href="blog-detail.html?post=importance-of-3d-elevation" tabindex="0" role="link">
             <div class="blog-image">
               <span class="blog-category">3D & Visualisation</span>
-              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=80" alt="3D elevation" />
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="3D elevation" loading="lazy" decoding="async" />
             </div>
             <div class="blog-content">
               <div class="blog-meta"><i class="far fa-calendar"></i> 18 Jun 2026 · <i class="far fa-clock"></i> 5 min</div>
@@ -159,7 +159,7 @@
           <article class="blog-card" data-href="blog-detail.html?post=residential-vs-commercial-architecture" tabindex="0" role="link">
             <div class="blog-image">
               <span class="blog-category">Architecture</span>
-              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80" alt="Commercial vs residential" />
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Commercial vs residential" loading="lazy" decoding="async" />
             </div>
             <div class="blog-content">
               <div class="blog-meta"><i class="far fa-calendar"></i> 9 Jun 2026 · <i class="far fa-clock"></i> 8 min</div>
@@ -175,7 +175,7 @@
           <article class="blog-card" data-href="blog-detail.html?post=plan-your-dream-home" tabindex="0" role="link">
             <div class="blog-image">
               <span class="blog-category">Planning</span>
-              <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=700&q=80" alt="Dream home planning" />
+                <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Dream home planning" loading="lazy" decoding="async" />
             </div>
             <div class="blog-content">
               <div class="blog-meta"><i class="far fa-calendar"></i> 1 Jun 2026 · <i class="far fa-clock"></i> 11 min</div>
@@ -293,19 +293,19 @@
           <h5>Contact</h5>
           <div class="footer-contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            <span>285 kp road ,  pioneer muthu street , parvathipuram - 629002</span>
+            <span>285 K.P. Road, Pioneer Muthu Street, Parvathipuram, Nagercoil — 629003</span>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-phone"></i>
-            <a href="tel:+919999999999">+91 74185 64997</a>
+            <a href="tel:+917418564997">+91 74185 64997</a>
           </div>
             <div class="footer-contact-item">
             <i class="fas fa-phone"></i>
-            <a href="tel:+919999999999">+91 77080 04448</a>
+            <a href="tel:+917708004448">+91 77080 04448</a>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-envelope"></i>
-            <a href="mailto:hello@basarchitects.com">babyarchitectstudio@gmail.com</a>
+            <a href="mailto:babyarchitectstudio@gmail.com">babyarchitectstudio@gmail.com</a>
           </div>
           <a href="#" class="btn-lux btn-gold mt-3" data-whatsapp><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
         </div>

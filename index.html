@@ -26,10 +26,10 @@
 <body>
 
   <!-- ============ NAVBAR ============ -->
-  <nav class="navbar-lux" id="navbar">
+  <nav class="navbar-lux" id="navbar" aria-label="Primary navigation">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <a href="index.html" class="navbar-brand p-0">
+        <a href="index.html" class="navbar-brand p-0" aria-label="BAS Baby Architects Studio home">
           <img src="images/logo-gw1.png" alt="BAS Baby Architects Studio" class="brand-logo" />
         </a>
         <ul class="nav-links">
@@ -40,7 +40,7 @@
           <li><a href="testimonials.html" data-nav="testimonials.html">Testimonials</a></li>
           <li><a href="contact.html" data-nav="contact.html">Contact</a></li>
         </ul>
-        <button class="navbar-toggler-lux" id="navToggler" aria-label="Toggle menu">
+        <button class="navbar-toggler-lux" id="navToggler" type="button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -48,15 +48,15 @@
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
     <a href="index.html" data-nav="index.html">Home</a>
     <a href="about.html" data-nav="about.html">About</a>
     <a href="services.html" data-nav="services.html">Services</a>
     <a href="blogs.html" data-nav="blogs.html">Blogs</a>
     <a href="testimonials.html" data-nav="testimonials.html">Testimonials</a>
     <a href="contact.html" data-nav="contact.html">Contact</a>
-  </div>
-  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  </nav>
+  <div class="mobile-menu-overlay" id="menuOverlay" aria-hidden="true"></div>
 
   <!-- ============ HERO CAROUSEL ============ -->
   <header class="hero">
@@ -102,6 +102,14 @@
       </div>
     </div>
 
+    <div class="hero-dots" role="group" aria-label="Choose hero slide">
+      <button class="hero-dot active" type="button" aria-label="Show slide 1" aria-current="true"></button>
+      <button class="hero-dot" type="button" aria-label="Show slide 2" aria-current="false"></button>
+      <button class="hero-dot" type="button" aria-label="Show slide 3" aria-current="false"></button>
+    </div>
+    <button class="hero-arrow prev" id="heroPrev" type="button" aria-label="Show previous slide"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+    <button class="hero-arrow next" id="heroNext" type="button" aria-label="Show next slide"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+
   </header>
 
   <!-- ============ ABOUT PREVIEW ============ -->
@@ -110,7 +118,7 @@
       <div class="row align-items-center g-5">
         <div class="col-lg-6 reveal from-left">
           <div class="position-relative">
-            <img src="images\about 1.png" alt="BAS Studio" class="img-fluid w-100" style="border:1px solid rgba(240,168,48,0.2);" />
+            <img src="images/about%201.png" alt="BAS Studio" class="img-fluid w-100" loading="lazy" decoding="async" style="border:1px solid rgba(240,168,48,0.2);" />
             <div class="floating-shape circle" style="width:120px;height:120px;top:-30px;right:-30px;"></div>
             <div class="floating-shape square" style="width:80px;height:80px;bottom:-25px;left:-25px;"></div>
           </div>
@@ -275,10 +283,10 @@
         <div class="col-lg-5 reveal from-left">
           <div class="row g-3 align-items-center">
             <div class="col-6">
-              <img src="images/material_moodboard_banana.jpg" alt="Aesthetic materials mood board with nano banana" class="img-fluid img-zoom gallery-image" style="border:1px solid rgba(240,168,48,0.25); border-radius: 4px; box-shadow: var(--shadow-dark);" />
+              <img src="images/material_moodboard_banana.jpg" alt="Aesthetic materials mood board with nano banana" class="img-fluid img-zoom gallery-image" loading="lazy" decoding="async" style="border:1px solid rgba(240,168,48,0.25); border-radius: 4px; box-shadow: var(--shadow-dark);" />
             </div>
             <div class="col-6 mt-4">
-              <img src="images/scale_model_banana.jpg" alt="Physical building scale model with nano banana" class="img-fluid img-zoom gallery-image" style="border:1px solid rgba(240,168,48,0.25); border-radius: 4px; box-shadow: var(--shadow-dark);" />
+              <img src="images/scale_model_banana.jpg" alt="Physical building scale model with nano banana" class="img-fluid img-zoom gallery-image" loading="lazy" decoding="async" style="border:1px solid rgba(240,168,48,0.25); border-radius: 4px; box-shadow: var(--shadow-dark);" />
             </div>
           </div>
         </div>
@@ -423,19 +431,19 @@
           <h5>Contact</h5>
           <div class="footer-contact-item">
             <i class="fas fa-map-marker-alt"></i>
-            <span>285 kp road ,  pioneer muthu street , parvathipuram - 629002</span>
+            <span>285 K.P. Road, Pioneer Muthu Street, Parvathipuram, Nagercoil — 629003</span>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-phone"></i>
-            <a href="tel:+919999999999">+91 74185 64997</a>
+            <a href="tel:+917418564997">+91 74185 64997</a>
           </div>
             <div class="footer-contact-item">
             <i class="fas fa-phone"></i>
-            <a href="tel:+919999999999">+91 77080 04448</a>
+            <a href="tel:+917708004448">+91 77080 04448</a>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-envelope"></i>
-            <a href="mailto:hello@basarchitects.com">babyarchitectstudio@gmail.com</a>
+            <a href="mailto:babyarchitectstudio@gmail.com">babyarchitectstudio@gmail.com</a>
           </div>
           <a href="#" class="btn-lux btn-gold mt-3" data-whatsapp><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
         </div>

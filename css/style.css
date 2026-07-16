@@ -119,6 +119,10 @@ a {
 
 a:hover { color: var(--gold-bright); }
 
+a.is-placeholder {
+  cursor: default;
+}
+
 .text-gold {
   background: var(--gold-gradient);
   -webkit-background-clip: text;
@@ -365,12 +369,26 @@ section {
   background: transparent;
   border: 1px solid var(--gold);
   border-radius: 4px;
-  padding: 8px 12px;
+  width: 46px;
+  height: 46px;
+  padding: 0;
   cursor: pointer;
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   z-index: 1060;
+  color: var(--gold);
+  transition: background-color var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.navbar-toggler-lux:hover,
+.navbar-toggler-lux:focus-visible {
+  background: rgba(240, 168, 48, 0.1);
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(240, 168, 48, 0.15);
+  outline: none;
 }
 
 .navbar-toggler-lux span {
@@ -395,26 +413,36 @@ section {
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 80%;
-  max-width: 340px;
+  right: 0;
+  width: min(86vw, 360px);
   height: 100vh;
+  height: 100dvh;
   background: linear-gradient(180deg, #0a0a0a 0%, #181818 100%);
   border-left: 1px solid var(--gold);
-  padding: 100px 30px 30px;
+  padding: calc(104px + env(safe-area-inset-top)) 26px calc(30px + env(safe-area-inset-bottom));
   z-index: 1055;
-  transition: right var(--t-slow);
+  transform: translateX(105%);
+  visibility: hidden;
+  box-shadow: -18px 0 50px rgba(0, 0, 0, 0.7);
+  transition: transform var(--t-slow), visibility 0s linear 0.7s;
   display: flex;
   flex-direction: column;
   gap: 8px;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
-.mobile-menu.open { right: 0; }
+.mobile-menu.open {
+  transform: translateX(0);
+  visibility: visible;
+  transition-delay: 0s;
+}
 
 .mobile-menu a {
-  display: block;
-  padding: 14px 12px;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  padding: 12px;
   color: var(--silver);
   font-size: 1rem;
   font-weight: 400;
@@ -425,10 +453,12 @@ section {
 }
 
 .mobile-menu a:hover,
-.mobile-menu a.active {
+.mobile-menu a.active,
+.mobile-menu a:focus-visible {
   color: var(--gold);
   padding-left: 22px;
   background: rgba(240, 168, 48, 0.05);
+  outline: none;
 }
 
 .mobile-menu-overlay {
@@ -446,6 +476,8 @@ section {
   opacity: 1;
   visibility: visible;
 }
+
+body.menu-open { overflow: hidden; }
 
 /* ---------- 7. HERO CAROUSEL ---------- */
 .hero {
@@ -628,6 +660,12 @@ section {
 
 .hero-dot.active {
   background: rgba(240, 240, 240, 0.3);
+}
+
+.hero-dot:focus-visible,
+.hero-arrow:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 4px;
 }
 
 .hero-dot.active::after {
@@ -1876,6 +1914,11 @@ select.form-control-lux option {
   .nav-links { display: none; }
   .navbar-toggler-lux { display: flex; }
 
+  .navbar-lux { padding: 12px 0; }
+  .navbar-lux.scrolled { padding: 9px 0; }
+  .navbar-lux .brand-logo { height: 56px; }
+  .navbar-lux.scrolled .brand-logo { height: 50px; }
+
   section { padding: 70px 0; }
 
   .hero-arrow { display: none; }
@@ -1890,8 +1933,7 @@ select.form-control-lux option {
 @media (max-width: 767.98px) {
   html { scroll-padding-top: 70px; }
 
-  .navbar-lux .brand-logo { height: 56px; }
-  .navbar-lux.scrolled .brand-logo { height: 50px; }
+  .navbar-lux .container { padding-inline: 18px; }
 
   section { padding: 55px 0; }
 
@@ -1995,6 +2037,16 @@ select.form-control-lux option {
 }
 
 @media (max-width: 575.98px) {
+  .navbar-lux { padding: 9px 0; }
+  .navbar-lux.scrolled { padding: 7px 0; }
+  .navbar-lux .brand-logo { height: 50px; }
+  .navbar-lux.scrolled .brand-logo { height: 46px; }
+
+  .mobile-menu {
+    width: min(90vw, 340px);
+    padding-inline: 20px;
+  }
+
   .testimonials-banner {
     min-height: clamp(500px, 72svh, 620px);
   }
@@ -2044,6 +2096,16 @@ select.form-control-lux option {
 
 @media (prefers-reduced-motion: reduce) {
   .page-banner-bg { animation: none; }
+
+  .mobile-menu,
+  .mobile-menu-overlay {
+    transition: none;
+  }
+
+  .hero-dot.active::after {
+    animation: none;
+    transform: scaleX(1);
+  }
 
   .hero-hover-btn,
   .hero-hover-btn::after,
