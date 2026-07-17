@@ -46,6 +46,7 @@
     toggler.setAttribute('aria-expanded', 'true');
     toggler.setAttribute('aria-label', 'Close navigation menu');
     mobileMenu.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('menu-open');
     document.body.classList.add('menu-open');
 
     const firstLink = getMenuLinks()[0];
@@ -60,6 +61,7 @@
     toggler && toggler.setAttribute('aria-expanded', 'false');
     toggler && toggler.setAttribute('aria-label', 'Open navigation menu');
     mobileMenu.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('menu-open');
     document.body.classList.remove('menu-open');
 
     if (restoreFocus && lastFocusedElement instanceof HTMLElement) {
@@ -101,10 +103,17 @@
     }
   });
 
-  window.addEventListener('resize', () => {
+  const closeMenuForLargeViewport = () => {
     if (window.innerWidth >= 992 && mobileMenu && mobileMenu.classList.contains('open')) {
       closeMenu(false);
     }
+  };
+
+  window.addEventListener('resize', closeMenuForLargeViewport, { passive: true });
+  window.addEventListener('orientationchange', () => {
+    window.setTimeout(() => {
+      if (mobileMenu && mobileMenu.classList.contains('open')) closeMenu(false);
+    }, 150);
   }, { passive: true });
 
   /* ---------- 3. SET ACTIVE NAV LINK ---------- */
