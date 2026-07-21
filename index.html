@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BAS Baby Architects Studio — Luxury Architecture & Design</title>
+  <title>BAS Baby Architects Studio — Luxury Architecture &amp; Design</title>
   <meta name="description" content="BAS Baby Architects Studio — designing dreams and building futures. Luxury architecture, residential planning, commercial architecture, interior design and complete build solutions." />
 
   <!-- Favicon -->
@@ -12,7 +12,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&amp;family=Poppins:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet" />
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -60,10 +60,10 @@
 
   <!-- ============ HERO CAROUSEL ============ -->
   <header class="hero">
-    <div class="hero-carousel" id="heroCarousel">
+    <div class="hero-carousel" id="heroCarousel" role="region" aria-roledescription="carousel" aria-label="Featured BAS projects">
       <!-- Slide 1 -->
-      <div class="hero-slide active">
-        <img src="images/hero_slide_1_banana.jpg" alt="Architect reviewing plans in a contemporary studio with nano banana" class="hero-slide-img" />
+      <div class="hero-slide active" aria-hidden="false">
+        <img src="images/hero_slide_1_banana.jpg" alt="Architect reviewing plans in a contemporary studio" class="hero-slide-img" />
         <div class="container hero-content">
           <span class="eyebrow left fade-up d-1">BAS Baby Architects Studio</span>
           <h1 class="fade-up d-2">Designing <span class="accent">Dreams</span>,<br />Building Futures</h1>
@@ -75,11 +75,11 @@
         </div>
       </div>
       <!-- Slide 2 -->
-      <div class="hero-slide">
-        <img src="images/hero_slide_2_banana.jpg" alt="Modern luxury residence with clean architectural lines and nano banana" class="hero-slide-img" />
+      <div class="hero-slide" aria-hidden="true">
+        <img src="images/hero_slide_2_banana.jpg" alt="Modern luxury residence with clean architectural lines" class="hero-slide-img" />
         <div class="container hero-content">
           <span class="eyebrow left">BAS Baby Architects Studio</span>
-          <h1>Luxury Architecture<br /><span class="accent">With Modern Vision</span></h1>
+          <h2>Luxury Architecture<br /><span class="accent">With Modern Vision</span></h2>
           <p>From concept planning to complete build, we craft spaces that reflect beauty and purpose — engineered for life, designed for legacy.</p>
           <div class="hero-actions">
             <a href="about.html" class="btn-lux btn-gold hero-hover-btn">Our Story <i class="fas fa-arrow-right"></i></a>
@@ -88,11 +88,11 @@
         </div>
       </div>
       <!-- Slide 3 -->
-      <div class="hero-slide">
-        <img src="images/hero_slide_3_banana.jpg" alt="Refined contemporary interior with warm natural materials and nano banana" class="hero-slide-img" />
+      <div class="hero-slide" aria-hidden="true">
+        <img src="images/hero_slide_3_banana.jpg" alt="Refined contemporary interior with warm natural materials" class="hero-slide-img" />
         <div class="container hero-content">
           <span class="eyebrow left">BAS Baby Architects Studio</span>
-          <h1>Design <span class="accent">•</span> Architect<br /><span class="accent">Build</span></h1>
+          <h2>Design <span class="accent">•</span> Architect<br /><span class="accent">Build</span></h2>
           <p>A complete studio for residential, commercial and interior architectural solutions — one vision, one team, one flawless execution.</p>
           <div class="hero-actions">
             <a href="contact.html" class="btn-lux btn-gold hero-hover-btn">Book a Consultation <i class="fas fa-arrow-right"></i></a>
@@ -103,9 +103,9 @@
     </div>
 
     <div class="hero-dots" role="group" aria-label="Choose hero slide">
-      <button class="hero-dot active" type="button" aria-label="Show slide 1" aria-current="true"></button>
-      <button class="hero-dot" type="button" aria-label="Show slide 2" aria-current="false"></button>
-      <button class="hero-dot" type="button" aria-label="Show slide 3" aria-current="false"></button>
+      <button class="hero-dot active" type="button" aria-label="Show slide 1" aria-controls="heroCarousel" aria-current="true"></button>
+      <button class="hero-dot" type="button" aria-label="Show slide 2" aria-controls="heroCarousel" aria-current="false"></button>
+      <button class="hero-dot" type="button" aria-label="Show slide 3" aria-controls="heroCarousel" aria-current="false"></button>
     </div>
     <button class="hero-arrow prev" id="heroPrev" type="button" aria-label="Show previous slide"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
     <button class="hero-arrow next" id="heroNext" type="button" aria-label="Show next slide"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
@@ -151,7 +151,7 @@
         <div class="col-md-6 col-lg-4 reveal delay-1">
           <div class="service-card">
             <div class="service-image">
-              <img src="images/what_we_do_1_banana.jpg" alt="Architectural drawings and design work with nano banana" loading="lazy" />
+              <img src="images/what_we_do_1_banana.jpg" alt="Architectural drawings and design work" loading="lazy" />
             </div>
             <h4>Architectural Design</h4>
             <p>Conceptual and detailed architectural design rooted in context, climate and human behaviour.</p>
@@ -161,7 +161,7 @@
         <div class="col-md-6 col-lg-4 reveal delay-2">
           <div class="service-card">
             <div class="service-image">
-              <img src="images/what_we_do_2_banana.jpg" alt="Contemporary residential villa with nano banana" loading="lazy" />
+              <img src="images/what_we_do_2_banana.jpg" alt="Contemporary residential villa" loading="lazy" />
             </div>
             <h4>Residential Planning</h4>
             <p>Bespoke home plans crafted for lifestyle, light, ventilation and timeless livability.</p>
@@ -171,7 +171,7 @@
         <div class="col-md-6 col-lg-4 reveal delay-3">
           <div class="service-card">
             <div class="service-image">
-              <img src="images/what_we_do_3_banana.jpg" alt="Modern commercial office tower with nano banana" loading="lazy" />
+              <img src="images/what_we_do_3_banana.jpg" alt="Modern commercial office tower" loading="lazy" />
             </div>
             <h4>Commercial Architecture</h4>
             <p>Workplaces, retail and hospitality designed for brand impact and operational efficiency.</p>
@@ -181,7 +181,7 @@
         <div class="col-md-6 col-lg-4 reveal delay-1">
           <div class="service-card">
             <div class="service-image">
-              <img src="images/what_we_do_4_banana.jpg" alt="Luxury modern living room interior with nano banana" loading="lazy" />
+              <img src="images/what_we_do_4_banana.jpg" alt="Luxury modern living room interior" loading="lazy" />
             </div>
             <h4>Interior Design</h4>
             <p>Layered interiors where material, light and proportion compose a refined daily experience.</p>
@@ -191,7 +191,7 @@
         <div class="col-md-6 col-lg-4 reveal delay-2">
           <div class="service-card">
             <div class="service-image">
-              <img src="images/what_we_do_5_banana.jpg" alt="Modern mansion exterior elevation with nano banana" loading="lazy" />
+              <img src="images/what_we_do_5_banana.jpg" alt="Modern mansion exterior elevation" loading="lazy" />
             </div>
             <h4>3D Elevation Design</h4>
             <p>Photorealistic 3D elevations that let you walk through your project before it's built.</p>
@@ -201,9 +201,9 @@
         <div class="col-md-6 col-lg-4 reveal delay-3">
           <div class="service-card">
             <div class="service-image">
-              <img src="images/what_we_do_6_banana.jpg" alt="Architectural design and construction planning with nano banana" loading="lazy" />
+              <img src="images/what_we_do_6_banana.jpg" alt="Architectural design and construction planning" loading="lazy" />
             </div>
-            <h4>Design & Build</h4>
+            <h4>Design &amp; Build</h4>
             <p>End-to-end turnkey delivery — design, documentation, procurement and construction.</p>
             <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
@@ -222,7 +222,7 @@
       <div class="row align-items-center g-5">
         <div class="col-lg-6 reveal from-left">
           <span class="eyebrow left">Why BAS</span>
-          <h2 class="mb-4">An Atelier Built On<br /><span class="text-gradient-gold">Discipline & Devotion</span></h2>
+          <h2 class="mb-4">An Atelier Built On<br /><span class="text-gradient-gold">Discipline &amp; Devotion</span></h2>
           <p class="mb-4">We don't just deliver projects — we deliver clarity, certainty and craftsmanship. Our clients return because every BAS project is shaped by a consistent set of principles that protect their investment, their timeline and their vision.</p>
 
           <div class="feature-item">
@@ -258,16 +258,16 @@
         <div class="col-lg-6 reveal from-right">
           <div class="row g-3">
             <div class="col-6">
-              <img src="images/why_bas_1_banana.jpg" alt="Warm contemporary living room with nano banana" class="img-fluid img-zoom gallery-image" loading="lazy" />
+              <img src="images/why_bas_1_banana.jpg" alt="Warm contemporary living room" class="img-fluid img-zoom gallery-image" loading="lazy" />
             </div>
             <div class="col-6 mt-5">
-              <img src="images/why_bas_2_banana.jpg" alt="Minimal luxury bedroom with nano banana" class="img-fluid img-zoom gallery-image" loading="lazy" />
+              <img src="images/why_bas_2_banana.jpg" alt="Minimal luxury bedroom" class="img-fluid img-zoom gallery-image" loading="lazy" />
             </div>
             <div class="col-6">
-              <img src="images/why_bas_3_banana.jpg" alt="Well-planned compact apartment interior with nano banana" class="img-fluid img-zoom gallery-image" loading="lazy" />
+              <img src="images/why_bas_3_banana.jpg" alt="Well-planned compact apartment interior" class="img-fluid img-zoom gallery-image" loading="lazy" />
             </div>
             <div class="col-6 mt-5">
-              <img src="images/why_bas_4_banana.jpg" alt="Modern kitchen with natural finishes and nano banana" class="img-fluid img-zoom gallery-image" loading="lazy" />
+              <img src="images/why_bas_4_banana.jpg" alt="Modern kitchen with natural finishes" class="img-fluid img-zoom gallery-image" loading="lazy" />
             </div>
           </div>
         </div>
@@ -283,10 +283,10 @@
         <div class="col-lg-5 reveal from-left">
           <div class="row g-3 align-items-center">
             <div class="col-6">
-              <img src="images/material_moodboard_banana.jpg" alt="Aesthetic materials mood board with nano banana" class="img-fluid img-zoom gallery-image" loading="lazy" decoding="async" style="border:1px solid rgba(240,168,48,0.25); border-radius: 4px; box-shadow: var(--shadow-dark);" />
+              <img src="images/material_moodboard_banana.jpg" alt="Architectural materials mood board" class="img-fluid img-zoom gallery-image" loading="lazy" decoding="async" style="border:1px solid rgba(240,168,48,0.25); border-radius: 4px; box-shadow: var(--shadow-dark);" />
             </div>
             <div class="col-6 mt-4">
-              <img src="images/scale_model_banana.jpg" alt="Physical building scale model with nano banana" class="img-fluid img-zoom gallery-image" loading="lazy" decoding="async" style="border:1px solid rgba(240,168,48,0.25); border-radius: 4px; box-shadow: var(--shadow-dark);" />
+              <img src="images/scale_model_banana.jpg" alt="Physical building scale model" class="img-fluid img-zoom gallery-image" loading="lazy" decoding="async" style="border:1px solid rgba(240,168,48,0.25); border-radius: 4px; box-shadow: var(--shadow-dark);" />
             </div>
           </div>
         </div>
@@ -326,7 +326,7 @@
     <div class="container">
       <div class="section-title-block center reveal">
         <span class="eyebrow center">Client Voices</span>
-        <h2>Trusted By Discerning<br /><span class="text-gradient-gold">Homeowners & Brands</span></h2>
+        <h2>Trusted By Discerning<br /><span class="text-gradient-gold">Homeowners &amp; Brands</span></h2>
       </div>
 
       <div class="row g-4">
@@ -385,7 +385,7 @@
       <p class="mx-auto mb-4" style="max-width:640px;">Book a no-obligation consultation with our design team. We'll discuss your brief, site, budget and timeline — and map the path from concept to completion.</p>
       <div class="d-flex flex-wrap justify-content-center gap-3">
         <a href="contact.html" class="btn-lux btn-gold">Book a Consultation <i class="fas fa-arrow-right"></i></a>
-        <a href="#" class="btn-lux btn-outline-gold" data-whatsapp><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+            <a href="https://wa.me/917418564997" class="btn-lux btn-outline-gold" data-whatsapp><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
       </div>
     </div>
   </section>
@@ -397,9 +397,9 @@
         <div class="col-lg-4 col-md-6">
           <img src="images/logo-gw1.png" alt="BAS Baby Architects Studio" class="footer-brand-logo" />
           <p>BAS Baby Architects Studio designs and builds elegant, functional and timeless architectural spaces — from private residences to landmark commercial developments.</p>
-          <div class="social-icons">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <div class="social-icons" aria-label="Social media">
+            <span title="Instagram" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+            <span title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-6">
@@ -421,7 +421,7 @@
             <li><a href="services.html">Commercial Architecture</a></li>
             <li><a href="services.html">Interior Design</a></li>
             <li><a href="services.html">3D Elevation Design</a></li>
-            <li><a href="services.html">Design & Build</a></li>
+            <li><a href="services.html">Design &amp; Build</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -442,17 +442,17 @@
             <i class="fas fa-envelope"></i>
             <a href="mailto:babyarchitectstudio@gmail.com">babyarchitectstudio@gmail.com</a>
           </div>
-          <a href="#" class="btn-lux btn-gold mt-3" data-whatsapp><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+          <a href="https://wa.me/917418564997" class="btn-lux btn-gold mt-3" data-whatsapp><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
         </div>
       </div>
       <div class="footer-bottom">
-        © <span id="year"></span> BAS Baby Architects Studio. All rights reserved. · <a href="#">Privacy Policy</a> · <a href="#">Terms</a>
+        &copy; <span id="year"></span> BAS Baby Architects Studio. All rights reserved.
       </div>
     </div>
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a class="whatsapp-float" data-whatsapp href="#" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+  <a class="whatsapp-float" data-whatsapp href="https://wa.me/917418564997" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 

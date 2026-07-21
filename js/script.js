@@ -12,6 +12,7 @@
   // Replace with the actual WhatsApp number in international format (no + or 00)
   const WHATSAPP_NUMBER = '917418564997';
   const WHATSAPP_MESSAGE = 'Hi BAS Baby Architects Studio, I would like to discuss an architecture project.';
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- 1. NAVBAR SCROLL EFFECT ---------- */
   const navbar = document.getElementById('navbar');
@@ -137,8 +138,6 @@
     let current = 0;
     let autoTimer = null;
     const SLIDE_DURATION = 6000;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     const goTo = (index) => {
       slides.forEach((slide, i) => {
         const isActive = i === index;
@@ -163,7 +162,7 @@
     };
     const startAuto = () => {
       stopAuto();
-      if (reduceMotion || document.hidden) return;
+      if (prefersReducedMotion || document.hidden) return;
       autoTimer = setInterval(next, SLIDE_DURATION);
     };
     const restartAuto = () => {
@@ -246,12 +245,23 @@
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const formData = new FormData(contactForm);
+      const subject = encodeURIComponent(`Project enquiry from ${formData.get('name') || 'BAS website visitor'}`);
+      const body = encodeURIComponent([
+        `Name: ${formData.get('name') || ''}`,
+        `Phone: ${formData.get('phone') || ''}`,
+        `Email: ${formData.get('email') || ''}`,
+        `Project type: ${formData.get('projectType') || ''}`,
+        '',
+        'Project details:',
+        formData.get('message') || ''
+      ].join('\n'));
       const successBox = document.getElementById('formSuccess');
       if (successBox) {
         successBox.classList.add('show');
-        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        successBox.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
       }
-      contactForm.reset();
+      window.location.href = `mailto:babyarchitectstudio@gmail.com?subject=${subject}&body=${body}`;
       setTimeout(() => {
         successBox && successBox.classList.remove('show');
       }, 7000);
@@ -266,13 +276,6 @@
     el.setAttribute('rel', 'noopener noreferrer');
   });
 
-  /* Prevent unfinished placeholder links from jumping to the page top. */
-  document.querySelectorAll('a[href="#"]:not([data-whatsapp])').forEach(link => {
-    link.setAttribute('aria-disabled', 'true');
-    link.classList.add('is-placeholder');
-    link.addEventListener('click', (event) => event.preventDefault());
-  });
-
   /* ---------- 9. SMOOTH SCROLL FOR ANCHOR LINKS ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -281,7 +284,7 @@
         const target = document.querySelector(id);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
         }
       }
     });
@@ -302,6 +305,61 @@
       shape.style.animation = `floatY ${6 + i * 1.5}s ease-in-out infinite`;
       shape.style.animationDelay = `${i * 0.7}s`;
     });
+  }
+
+  /* ---------- 12. BLOG ARTICLE INTERACTIONS ---------- */
+  const blogCards = document.querySelectorAll('.blog-card[data-href]');
+  blogCards.forEach(card => {
+    const openArticle = () => {
+      window.location.href = card.getAttribute('data-href');
+    };
+
+    card.addEventListener('click', event => {
+      if (event.target.closest('a')) return;
+      openArticle();
+    });
+
+  });
+
+  /* ---------- 13. NEWSLETTER FORM ---------- */
+  const newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const newsletterStatus = document.getElementById('newsletterStatus');
+      const newsletterEmail = document.getElementById('newsletterEmail');
+      const subscriberEmail = newsletterEmail ? newsletterEmail.value.trim() : '';
+      if (newsletterStatus) {
+        newsletterStatus.hidden = false;
+        newsletterStatus.textContent = 'Your email app has been opened. Send the prepared message to complete your subscription.';
+      }
+      const subject = encodeURIComponent('BAS Insider List subscription');
+      const body = encodeURIComponent(`Please add ${subscriberEmail} to the BAS Insider List.`);
+      window.location.href = `mailto:babyarchitectstudio@gmail.com?subject=${subject}&body=${body}`;
+    });
+  }
+
+  const loadMoreButton = document.getElementById('loadMoreArticles');
+  if (loadMoreButton) {
+    const moreArticles = Array.from(document.querySelectorAll('[data-more-article]'));
+    const loadMoreStatus = document.getElementById('loadMoreStatus');
+
+    if (!moreArticles.length) {
+      loadMoreButton.hidden = true;
+    } else {
+      loadMoreButton.addEventListener('click', () => {
+        moreArticles.forEach((article, index) => {
+          article.classList.remove('d-none');
+          article.classList.add('reveal', 'visible', `delay-${(index % 3) + 1}`);
+        });
+
+        loadMoreButton.setAttribute('aria-expanded', 'true');
+        loadMoreButton.hidden = true;
+        if (loadMoreStatus) {
+          loadMoreStatus.textContent = `${moreArticles.length} more articles loaded.`;
+        }
+      }, { once: true });
+    }
   }
 
 })();
