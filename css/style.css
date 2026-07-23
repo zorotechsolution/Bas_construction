@@ -1871,7 +1871,8 @@ select.form-control-lux option {
   margin-top: 20px;
 }
 
-.social-icons span {
+.social-icons span,
+.social-icons a {
   width: 40px;
   height: 40px;
   display: inline-flex;
@@ -1881,10 +1882,13 @@ select.form-control-lux option {
   border: 1px solid rgba(240, 168, 48, 0.3);
   color: var(--gold);
   font-size: 0.95rem;
+  text-decoration: none;
   transition: transform var(--t-base), background var(--t-base), color var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
 }
 
-.social-icons span:hover {
+.social-icons span:hover,
+.social-icons a:hover,
+.social-icons a:focus-visible {
   background: var(--gold-gradient);
   border-color: var(--gold-bright);
   color: var(--black);
@@ -1892,11 +1896,14 @@ select.form-control-lux option {
   transform: translateY(-4px) scale(1.05);
 }
 
-.social-icons span:hover i {
+.social-icons span:hover i,
+.social-icons a:hover i,
+.social-icons a:focus-visible i {
   transform: scale(1.1);
 }
 
-.social-icons span i {
+.social-icons span i,
+.social-icons a i {
   transition: transform var(--t-fast);
 }
 
