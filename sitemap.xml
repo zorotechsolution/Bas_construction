@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://www.babyarchitectsstudio.com/</loc>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.babyarchitectsstudio.com/about.html</loc>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://www.babyarchitectsstudio.com/services.html</loc>
+  </url>
+
+  <!-- Blogs -->
+  <url>
+    <loc>https://www.babyarchitectsstudio.com/blogs.html</loc>
+  </url>
+
+  <!-- Testimonials -->
+  <url>
+    <loc>https://www.babyarchitectsstudio.com/testimonials.html</loc>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.babyarchitectsstudio.com/contact.html</loc>
+  </url>
+
+</urlset>
