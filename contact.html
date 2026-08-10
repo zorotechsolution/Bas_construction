@@ -74,10 +74,10 @@
             <h2 class="mb-4">Send Us a <span class="text-gradient-gold">Message</span></h2>
 
             <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-              <i class="fas fa-check-circle me-2"></i> Your email app has been opened with the project details. Send the prepared email to complete your enquiry.
+              <i class="fab fa-whatsapp me-2"></i> WhatsApp has been opened with your project details. Please press Send to complete your enquiry.
             </div>
 
-            <form id="contactForm" action="mailto:babyarchitectstudio@gmail.com" method="post" enctype="text/plain">
+            <form id="whatsappContactForm">
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label-lux" for="name">Full Name *</label>
@@ -111,7 +111,7 @@
                   <textarea class="form-control-lux" id="message" name="message" placeholder="Tell us about your site, budget, timeline and what you're hoping to achieve…" required></textarea>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn-lux btn-gold w-100">Send via Email <i class="fas fa-paper-plane"></i></button>
+                  <button type="submit" class="btn-lux btn-gold w-100">Send Enquiry on WhatsApp <i class="fab fa-whatsapp"></i></button>
                 </div>
               </div>
             </form>
@@ -325,6 +325,50 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+
+  <script>
+    const contactForm = document.getElementById("whatsappContactForm");
+
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const projectType = document.getElementById("projectType").value;
+        const message = document.getElementById("message").value.trim();
+
+        const whatsappNumber = "917418564997";
+
+        const whatsappMessage = `Hello BAS Baby Architects Studio,
+
+I would like to make a project enquiry.
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+📧 Email: ${email}
+🏗️ Project Type: ${projectType}
+
+📝 Project Details:
+${message}
+
+🌐 Enquiry from:
+www.babyarchitectsstudio.com`;
+
+        const whatsappURL =
+          `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        const formSuccess = document.getElementById("formSuccess");
+        if (formSuccess) {
+          formSuccess.style.display = "block";
+        }
+
+        window.open(whatsappURL, "_blank");
+      });
+    }
+  </script>
+
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
